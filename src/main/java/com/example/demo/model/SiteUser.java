@@ -30,9 +30,15 @@ public class SiteUser {
 	 * パスワード
 	 */
 	private String password;
+	
 	/**
 	 * メールアドレス
 	 */
 	@Email
 	private String email;
+
+	/**
+	 * ロール
+	 */
+	private String role;
 }
