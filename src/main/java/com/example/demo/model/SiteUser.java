@@ -25,6 +25,11 @@ public class SiteUser {
 	 */
 	private String name;
 	
+	
+	/**
+	 * パスワード
+	 */
+	private String password;
 	/**
 	 * メールアドレス
 	 */
