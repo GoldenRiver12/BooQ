@@ -12,7 +12,7 @@ import lombok.*;
  */
 @Data
 @Entity
-public class User {
+public class SiteUser {
 	/**
 	 * ユーザーID
 	 */
