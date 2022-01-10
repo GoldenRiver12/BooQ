@@ -25,7 +25,7 @@ public class Question implements Serializable{
 	 * ユーザーID
 	 */
 	@Id
-	private String userId;
+	private Long userid;
 	
 	/**
 	 * 質問ID
