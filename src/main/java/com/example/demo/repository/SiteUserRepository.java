@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.model.SiteUser;
 
-public interface SiteUserRepository extends JpaRepository<SiteUser,String>{
-	SiteUser findByName(String name);
-	boolean existsByName(String name);
+public interface SiteUserRepository extends JpaRepository<SiteUser,Long>{
+	SiteUser findByUsername(String userName);
+	boolean existsByUsername(String userName);
 }

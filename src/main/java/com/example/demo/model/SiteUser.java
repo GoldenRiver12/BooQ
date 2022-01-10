@@ -13,18 +13,19 @@ import lombok.*;
 @Data
 @Entity
 public class SiteUser {
-	/**
-	 * ユーザーID
-	 */
-	@Id
-	private String id;
 	
-	
-	/**
-	 * ユーザー名
-	 */
-	private String name;
-	
+    /**
+     * ユーザーID
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long userid;
+    
+    /**
+     * ユーザー名
+     */
+    @Column(unique=true)
+    private String username;
 	
 	/**
 	 * パスワード
