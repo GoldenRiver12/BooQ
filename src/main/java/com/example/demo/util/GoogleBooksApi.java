@@ -111,17 +111,4 @@ public class GoogleBooksApi {
 				.findAny().map(ii -> ii.getIdentifier());
 	}
 	
-	public static void main(String[] args) {
-		BookRepositoryImpl test = new BookRepositoryImpl();
-		try {
-			test.findByKeyword("psycology")
-				.stream()
-				.forEach(System.out::println);
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
 }
