@@ -44,4 +44,9 @@ public class MainController {
 		
 		return "redirect:/login?register";
 	}
+	
+	@GetMapping("/postquestion")
+	public String getPostquestion() {
+		return "postquestion";
+	}
 }
