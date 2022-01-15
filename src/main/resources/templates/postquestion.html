@@ -7,5 +7,20 @@
 <title>質問投稿</title>
 </head>
 <body>
+	<form th:action="@{/postquestion}" th:object="${question}"
+		method="post" novalidate>
+		<div>
+			<label for="isbn"> ISBN </label> <input type="text"
+				th:errorclass="is-invalid" th:field="*{isbn}">
+			<div th:errors="*{isbn}"></div>
+		</div>
+		<div>
+			<label for="content"> 質問内容 </label>
+			<textarea th:errorclass="is-invalid" th:field="*{content}"></textarea>
+				<div th:errors="*{content}"></div>
+			
+		</div>
+		<button type="submit">質問を投稿する</button>
+	</form>
 </body>
 </html>

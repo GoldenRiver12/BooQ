@@ -16,6 +16,7 @@ import lombok.*;
 @Data
 @EqualsAndHashCode
 @Entity
+@IdClass(QuestionId.class)
 public class Question implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -28,16 +29,18 @@ public class Question implements Serializable{
 	private Long userid;
 	
 	/**
+	 * 質問対象の本のISBM
+	 */
+	@Id
+	@ISBN
+	private String isbn;
+	
+	/**
 	 * 質問ID
 	 */
 	@Id
-	private String questionId;
-	
-	/**
-	 * 質問対象の本のISBM
-	 */
-	@ISBN
-	private String isbn;
+	@GeneratedValue
+	private Long questionId;
 	
 	/**
 	 * 質問の投稿日時
