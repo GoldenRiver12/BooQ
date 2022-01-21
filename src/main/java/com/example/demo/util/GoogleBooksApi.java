@@ -94,10 +94,14 @@ public class GoogleBooksApi {
 	public static Optional<Book> convertItemToBook(Item item){
 		val isbn13Op = getIsbn13(item);
 		val title = item.getVolumeInfo().getTitle();
-		return isbn13Op.map(isbn13 -> new Book(
-				isbn13,
-				title
-				));
+		val thumbnailOp = getThumbnail(item);
+		return isbn13Op.flatMap(isbn13 -> 
+			thumbnailOp.map(thumbnail ->
+				new Book(
+					isbn13,
+					title,
+					thumbnail
+			)));
 	}
 	
 	/**
@@ -109,6 +113,17 @@ public class GoogleBooksApi {
 	public static Optional<String> getIsbn13(Item item) {
 		return item.getVolumeInfo().getIndustryIdentifiers().stream().filter(ii -> ii.getType().equals("ISBN_13"))
 				.findAny().map(ii -> ii.getIdentifier());
+	}
+	
+	/**
+	 * Itemモデルからサムネイル画像のURLを取得する
+	 * サムネイルが存在しないItemに対してはOptional.empty()を返す
+	 * @param item
+	 * @return
+	 */
+	public static Optional<String> getThumbnail(Item item) {
+		return Optional.ofNullable(item.getVolumeInfo().getImageLinks())
+				.map(il -> il.getThumbnail());
 	}
 	
 }

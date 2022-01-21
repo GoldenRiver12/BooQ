@@ -8,4 +8,5 @@ import lombok.Data;
 public class Book {
 	private String isbn13;
 	private String title;
+	private String thumbnail;
 }

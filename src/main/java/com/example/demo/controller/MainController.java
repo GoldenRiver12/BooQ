@@ -1,8 +1,8 @@
 package com.example.demo.controller;
 
+import java.io.IOException;
 import java.security.Principal;
 import java.time.LocalDateTime;
-
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -10,13 +10,17 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.example.demo.model.Book;
 import com.example.demo.model.Question;
 import com.example.demo.model.SiteUser;
 import com.example.demo.repository.QuestionRepository;
 import com.example.demo.repository.SiteUserRepository;
 import com.example.demo.service.PostquestionService;
 import com.example.demo.util.Role;
+import com.google.gson.Gson;
 
 import lombok.RequiredArgsConstructor;
 
@@ -74,4 +78,11 @@ public class MainController {
 		
 		return "index";
 	}
+	
+	@GetMapping("/postquestion/booksearch")
+	@ResponseBody
+	public String bookSearch(@RequestParam("keyword") String keyword) throws IOException {
+		return postquestionService.findBookByKeywordAsJson(keyword);
+	}
+	
 }

@@ -3,24 +3,55 @@
 <head>
 <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
 	rel="stylesheet">
+<link th:href="@{/css/postquestion.css}" rel="stylesheet">
+
 <meta charset="UTF-8">
 <title>質問投稿</title>
 </head>
 <body>
-	<form th:action="@{/postquestion}" th:object="${question}"
-		method="post" novalidate>
-		<div>
-			<label for="isbn"> ISBN </label> <input type="text"
-				th:errorclass="is-invalid" th:field="*{isbn}">
-			<div th:errors="*{isbn}"></div>
+	<div id="vue_el">
+
+		<form id="booksearch" v-on:submit.prevent="getResult(keyword)">
+			<input type="text" id="keyword" v-model="keyword">
+			<button type="submit">検索</button>
+		</form>
+
+
+
+		<div class="container book_wrapper" v-for="item in items" :key="item.isbn13">
+			<div class="book_card" @click="selectBook(item.isbn13)" :class="{'highlight': (item.isbn13 == isbn13)}">
+				<div class="row">
+					<div class="col-md-4">
+						<img class="card-img" v-bind:src="item.thumbnail">
+					</div>
+					<div class="col-md-8">{{item.title}}</div>
+				</div>
+			</div>
 		</div>
-		<div>
-			<label for="content"> 質問内容 </label>
-			<textarea th:errorclass="is-invalid" th:field="*{content}"></textarea>
+
+		<form th:action="@{/postquestion}" th:object="${question}"
+			method="post" novalidate>
+			<div class="d-none">
+				<label for="isbn"> ISBN </label> <input type="text"
+					th:errorclass="is-invalid" th:field="*{isbn}" v-model="isbn13">
+				<div th:errors="*{isbn}"></div>
+			</div>
+			<div>
+				<label for="content"> 質問内容 </label>
+				<textarea th:errorclass="is-invalid" th:field="*{content}"></textarea>
 				<div th:errors="*{content}"></div>
-			
-		</div>
-		<button type="submit">質問を投稿する</button>
-	</form>
+
+			</div>
+			<button type="submit">質問を投稿する</button>
+		</form>
+	</div>
+
+
+
+	<script src="webjars/bootstrap/js/bootstrap.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+	<script type="text/javascript" th:src="@{/js/postquestion.js}"></script>
 </body>
 </html>
