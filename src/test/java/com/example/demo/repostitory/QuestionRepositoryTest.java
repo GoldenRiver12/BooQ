@@ -64,7 +64,7 @@ class QuestionRepositoryTest {
 
 		questionRepository.saveAll(List.of(question, questionDoNotContainsKeyword));
 
-		List<Question> searchedQuestions = questionRepository.findQuestionByIsbmListAndKeyword(List.of("9784492470855"),
+		List<Question> searchedQuestions = questionRepository.findByIsbmListAndKeyword(List.of("9784492470855"),
 				"法則");
 
 		// 検索結果が1件であることを確認

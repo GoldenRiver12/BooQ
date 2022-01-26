@@ -11,5 +11,5 @@ import com.example.demo.model.QuestionId;
 public interface QuestionRepository extends JpaRepository<Question, QuestionId> {
 	
 	@Query("SELECT q from Question q WHERE isbn IN :isbnlist AND content LIKE CONCAT('%', :keyword, '%')")
-	public List<Question> findQuestionByIsbmListAndKeyword(@Param("isbnlist") List<String> isbnList, @Param("keyword") String keyword);
+	public List<Question> findByIsbmListAndKeyword(@Param("isbnlist") List<String> isbnList, @Param("keyword") String keyword);
 }
