@@ -14,6 +14,9 @@ import lombok.*;
  *
  */
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode
 @Entity
 @IdClass(QuestionId.class)

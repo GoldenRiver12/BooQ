@@ -13,6 +13,9 @@ import lombok.*;
  *
  */
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 public class SiteUser {
 	
