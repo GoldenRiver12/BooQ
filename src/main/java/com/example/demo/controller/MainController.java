@@ -85,4 +85,9 @@ public class MainController {
 		return postquestionService.findBookByKeywordAsJson(keyword);
 	}
 	
+	@GetMapping("/search")
+	public String questionSearch(@RequestParam("book-keyword") String bookKeyword, @RequestParam("question-keyword") String questionKeyword) {
+		return null;
+	}
+	
 }
