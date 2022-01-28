@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    username: testuser
+    url: jdbc:postgresql://localhost:5432/booq
+    password: password
+  jpa:
+    database: POSTGRESQL
+    properties:
+      hibernate:
+        '[format_sql]': 'true'
+    hibernate:
+      ddl-auto: create-drop
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
