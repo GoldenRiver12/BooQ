@@ -1,15 +1,20 @@
+---
+#開発環境
 spring:
   datasource:
     username: testuser
     url: jdbc:postgresql://localhost:5432/booq
     password: password
+  config:
+    activate:
+      on-profile: dev
   jpa:
     database: POSTGRESQL
     properties:
       hibernate:
         '[format_sql]': 'true'
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: create
 logging:
   level:
     org:
@@ -19,3 +24,34 @@ logging:
           descriptor:
             sql:
               BasicBinder: TRACE
+---
+#本番環境
+spring:
+  config:
+    activate:
+      on-profile: prod
+  sql:
+    init:
+      mode: always 
+  datasource:
+    username: testuser
+    url: "jdbc:postgresql://aa14qmmkbq2pnkh.c6qk6k776hkr.ap-northeast-1.rds.amazonaws.com:5432/ebdb"
+    password: password
+  jpa:
+    database: POSTGRESQL
+    properties:
+      hibernate:
+        '[format_sql]': 'true'
+    hibernate:
+      ddl-auto: create
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
+server:
+  port: 5000
