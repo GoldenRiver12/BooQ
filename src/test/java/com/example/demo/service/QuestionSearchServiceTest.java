@@ -24,6 +24,7 @@ import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 import com.example.demo.model.Book;
 import com.example.demo.model.Question;
@@ -43,11 +44,10 @@ class QuestionSearchServiceTest {
 	@Autowired
 	QuestionRepository questionRepository;
 
-	@Mock
+	@MockBean
 	BookRepository bookRepository;
 
 	@Autowired
-	@InjectMocks
 	QuestionSearchService questionSearchService;
 
 	@BeforeEach
