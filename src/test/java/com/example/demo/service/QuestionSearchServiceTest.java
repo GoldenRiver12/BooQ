@@ -93,10 +93,10 @@ class QuestionSearchServiceTest {
 		List<Question> actual = questionSearchService.findQuestionByBookKeywordAndQuestionKeyword("熱力学", "第一法則");
 		
 		
-		assertThat(List.of(question)).usingRecursiveComparison()
+		assertThat(actual).usingRecursiveComparison()
 			.ignoringFields("questionId")
 			.ignoringCollectionOrder()
-			.isEqualTo(actual);
+			.isEqualTo(List.of(question));
 	}
 
 }
