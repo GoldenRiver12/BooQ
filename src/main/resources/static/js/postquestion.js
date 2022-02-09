@@ -17,7 +17,7 @@ const app = new Vue({
 			url.searchParams.append("keyword", keyword);
 			fetch(url)
 				.then(response => response.json())
-				.then(json => {this.items = json;console.log(json);});
+				.then(json => this.items = json);
 		},
 		selectBook(item){
 			this.selectedBook = item;
