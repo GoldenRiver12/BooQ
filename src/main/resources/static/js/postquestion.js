@@ -5,7 +5,10 @@ const app = new Vue({
 		return{
 			keyword:"",
 			items:[],
-			isbn13:""
+			selectedBook:{
+				isbn13:"",
+				thumbnail:""
+			}
 		}
 	},
 	methods:{
@@ -16,8 +19,8 @@ const app = new Vue({
 				.then(response => response.json())
 				.then(json => {this.items = json;console.log(json);});
 		},
-		selectBook(isbn13){
-			this.isbn13 = isbn13;
+		selectBook(item){
+			this.selectedBook = item;
 		}
 	}
 });
