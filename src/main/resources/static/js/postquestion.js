@@ -1,6 +1,6 @@
 
 const app = new Vue({
-	el:"#vue_booksearch_el",
+	el:"#vue_bookselection_el",
 	data(){
 		return{
 			keyword:"",
