@@ -11,7 +11,24 @@
 <body>
 	<div th:replace="myfragment :: my-header"></div>
 	<div id="vue_el">
-
+		<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#booksearch-modal">モーダル</button>
+		<div class="modal" id="booksearch-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">書籍検索画面</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						コンテンツ
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary">保存する</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 		<form id="booksearch" v-on:submit.prevent="getResult(keyword)">
 			<input type="text" id="keyword" v-model="keyword">
 			<button type="submit">検索</button>
