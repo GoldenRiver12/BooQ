@@ -44,34 +44,34 @@
 				</div>
 			</div>
 		</div>
-			<form th:action="@{/postquestion}" th:object="${question}"
-				method="post" novalidate>
-				<div class="book_card form-group mb-3 float-none">
-					<div class="row">
-						<div class="col-md-4">
-							<img class="card-img" v-bind:src="selectedBook.thumbnail">
-						</div>
-						<div class="col-md-8">{{selectedBook.title}}</div>
+		<form th:action="@{/postquestion}" th:object="${question}"
+			method="post" novalidate>
+			<div class="book_card form-group mb-3 float-none">
+				<div class="row">
+					<div class="col-md-4">
+						<img class="card-img" v-bind:src="selectedBook.thumbnail">
 					</div>
-					<button type="button" class="btn btn-primary"
-						data-bs-toggle="modal" data-bs-target="#booksearch-modal">書籍を選択</button>
+					<div class="col-md-8">{{selectedBook.title}}</div>
 				</div>
+				<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+					data-bs-target="#booksearch-modal">書籍を選択</button>
+			</div>
 
-				<div class="d-none">
-					<label for="isbn"> ISBN </label> <input type="text"
-						th:errorclass="is-invalid" th:field="*{isbn}"
-						v-model="selectedBook.isbn13">
-					<div th:errors="*{isbn}"></div>
-				</div>
+			<div class="d-none">
+				<label for="isbn"> ISBN </label> <input type="text"
+					th:errorclass="is-invalid" th:field="*{isbn}"
+					v-model="selectedBook.isbn13">
+				<div th:errors="*{isbn}"></div>
+			</div>
 
-				<div class="form-group mb-3 float-none">
-					<label class="form-label" for="content"> 質問内容 </label>
-					<textarea class="form-control" th:errorclass="is-invalid"
-						th:field="*{content}"></textarea>
-					<div th:errors="*{content}"></div>
-				</div>
-				<button type="submit">質問を投稿する</button>
-			</form>
+			<div class="form-group mb-3 float-none">
+				<label class="form-label" for="content"> 質問内容 </label>
+				<textarea class="form-control" th:errorclass="is-invalid"
+					th:field="*{content}"></textarea>
+				<div th:errors="*{content}"></div>
+			</div>
+			<button type="submit">質問を投稿する</button>
+		</form>
 
 	</div>
 
