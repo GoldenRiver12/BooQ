@@ -47,7 +47,7 @@
 		<form th:action="@{/postquestion}" th:object="${question}"
 			method="post" novalidate>
 			<div class="book_card form-group float-none">
-				<button type="button" class="btn btn-primary my-3"
+				<button type="button" class="btn btn-secondary my-3"
 					data-bs-toggle="modal" data-bs-target="#booksearch-modal">書籍を選択</button>
 				<div class="row">
 					<div class="col-md-4">
@@ -70,7 +70,7 @@
 					th:field="*{content}"></textarea>
 				<div th:errors="*{content}"></div>
 			</div>
-			<button type="submit">質問を投稿する</button>
+			<button class="btn btn-primary" type="submit">質問を投稿する</button>
 		</form>
 
 	</div>
