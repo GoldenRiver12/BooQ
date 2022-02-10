@@ -28,7 +28,8 @@
 						<div class="container book_wrapper" v-for="item in items"
 							:key="item.isbn13">
 							<div class="book_card" @click="selectBook(item)"
-								:class="{'highlight': (item.isbn13 == selectedBook.isbn13)}" data-bs-dismiss="modal">
+								:class="{'highlight': (item.isbn13 == selectedBook.isbn13)}"
+								data-bs-dismiss="modal">
 								<div class="row">
 									<div class="col-md-4">
 										<img class="card-img" v-bind:src="item.thumbnail">
@@ -43,15 +44,15 @@
 		</div>
 		<form th:action="@{/postquestion}" th:object="${question}"
 			method="post" novalidate>
-			<div class="book_card form-group mb-3 float-none">
-				<div class="row mx-auto">
+			<div class="book_card form-group float-none">
+				<button type="button" class="btn btn-primary my-3"
+					data-bs-toggle="modal" data-bs-target="#booksearch-modal">書籍を選択</button>
+				<div class="row">
 					<div class="col-md-4">
 						<img class="card-img" v-bind:src="selectedBook.thumbnail">
 					</div>
 					<div class="col-md-8">{{selectedBook.title}}</div>
 				</div>
-				<button type="button" class="btn btn-primary mx-auto" data-bs-toggle="modal"
-					data-bs-target="#booksearch-modal">書籍を選択</button>
 			</div>
 
 			<div class="d-none">
