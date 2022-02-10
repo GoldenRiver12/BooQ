@@ -1,3 +1,4 @@
+/* 書籍検索モーダル内の書籍検索結果を、その部分のみスクロールできるようにする */
 .book-search-result{
 	max-height: calc(100vh - 200px);
     overflow-y: auto;
