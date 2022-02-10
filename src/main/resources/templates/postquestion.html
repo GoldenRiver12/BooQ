@@ -15,17 +15,9 @@
 		<div th:replace="myfragment :: book-search-modal"></div>
 		<form th:action="@{/postquestion}" th:object="${question}"
 			method="post" novalidate>
-			<div class="book_card form-group float-none">
-				<button type="button" class="btn btn-secondary my-3"
-					data-bs-toggle="modal" data-bs-target="#booksearch-modal">書籍を選択</button>
-				<div class="row">
-					<div class="col-md-4">
-						<img class="card-img" v-bind:src="selectedBook.thumbnail">
-					</div>
-					<div class="col-md-8">{{selectedBook.title}}</div>
-				</div>
-			</div>
-
+			
+			<div th:replace="myfragment :: book-search-select"></div>
+			
 			<div class="d-none">
 				<label for="isbn"> ISBN </label> <input type="text"
 					th:errorclass="is-invalid" th:field="*{isbn}"
