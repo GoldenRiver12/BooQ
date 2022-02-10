@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div th:replace="myfragment :: my-header"></div>
-	<div id="vue_bookselection_el">
+	<div class="mx-5" id="vue_bookselection_el">
 
 		<div class="modal" id="booksearch-modal">
 			<div class="modal-dialog modal-dialog-scrollable">
@@ -44,7 +44,6 @@
 				</div>
 			</div>
 		</div>
-		<div>
 			<form th:action="@{/postquestion}" th:object="${question}"
 				method="post" novalidate>
 				<div class="book_card form-group mb-3 float-none">
@@ -73,7 +72,6 @@
 				</div>
 				<button type="submit">質問を投稿する</button>
 			</form>
-		</div>
 
 	</div>
 
