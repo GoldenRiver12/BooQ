@@ -47,13 +47,13 @@
 		<form th:action="@{/postquestion}" th:object="${question}"
 			method="post" novalidate>
 			<div class="book_card form-group mb-3 float-none">
-				<div class="row">
+				<div class="row mx-auto">
 					<div class="col-md-4">
 						<img class="card-img" v-bind:src="selectedBook.thumbnail">
 					</div>
 					<div class="col-md-8">{{selectedBook.title}}</div>
 				</div>
-				<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+				<button type="button" class="btn btn-primary mx-auto" data-bs-toggle="modal"
 					data-bs-target="#booksearch-modal">書籍を選択</button>
 			</div>
 
