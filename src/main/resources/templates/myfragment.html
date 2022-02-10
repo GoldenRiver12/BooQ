@@ -13,9 +13,12 @@
 			<nav class="navbar navbar-expand navbar-light bg-light">
 				<div class="container-fluid">
 					<ul class="navbar-nav mr-auto">
-						<li class="nav-item"><a class="nav-link navbar-brand" th:href="@{/}">Booq</a></li>
-						<li class="nav-item"><a class="nav-link" th:href="@{/postquestion}">投稿</a></li>
-						<li class="nav-item"><a class="nav-link" th:href="@{/searchquestion}">質問閲覧</a></li>
+						<li class="nav-item"><a class="nav-link navbar-brand"
+							th:href="@{/}">Booq</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/postquestion}">投稿</a></li>
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/searchquestion}">質問閲覧</a></li>
 					</ul>
 					<ul class="navbar-nav">
 						<li class="nav-item"><a class="nav-link" th:href="@{/login}">ログイン</a></li>
@@ -23,6 +26,41 @@
 				</div>
 			</nav>
 		</header>
+	</div>
+
+	<div th:fragment="book-search-modal">
+		<div class="modal" id="booksearch-modal">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">書籍検索</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						<form id="booksearch" v-on:submit.prevent="getResult(keyword)">
+							<input type="text" id="keyword" v-model="keyword">
+							<button type="submit">検索</button>
+						</form>
+						<div class="book-search-result">
+							<div class="container book_wrapper" v-for="item in items"
+								:key="item.isbn13">
+								<div class="book_card" @click="selectBook(item)"
+									:class="{'highlight': (item.isbn13 == selectedBook.isbn13)}"
+									data-bs-dismiss="modal">
+									<div class="row">
+										<div class="col-md-4">
+											<img class="card-img" v-bind:src="item.thumbnail">
+										</div>
+										<div class="col-md-8">{{item.title}}</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 </body>
