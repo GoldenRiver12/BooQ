@@ -1,12 +1,17 @@
-.book_card{
-    margin:10px;
-    float:left;
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    width:40%;
-    cursor: pointer;
+.book_card {
+	margin: 10px;
+	float: left;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	width: 40%;
+	cursor: pointer;
 }
 /* 選択した本をハイライト */
 .highlight {
-     background-color: red;
+	background-color: red;
+}
+
+/* マスタッシュの非表示 */
+[v-cloak] {
+	display: none;
 }
