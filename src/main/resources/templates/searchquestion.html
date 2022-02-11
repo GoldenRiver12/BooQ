@@ -11,7 +11,25 @@
 	<div th:replace="myfragment :: my-header"></div>
 	<div class="mx-5" id="vue_bookselection_el" v-cloak>
 		<div th:replace="myfragment :: book-search-modal"></div>
-		<div th:replace="myfragment :: book-search-select"></div>
+
+		<form>
+			<div class="containter">
+				<div class="row">
+					<div class="col-3">
+						<div th:replace="myfragment :: book-search-select"></div>
+					</div>
+					<div class="col-4">
+						<label class="form-label" for="questionKeyword">質問内容</label> <input
+							class="form-control" type="text">
+					</div>
+					<div class="col-4">
+						<button class="btn btn-primary">検索</button>
+					</div>
+
+				</div>
+			</div>
+		</form>
+
 	</div>
 
 	<script src="webjars/bootstrap/js/bootstrap.min.js"></script>
