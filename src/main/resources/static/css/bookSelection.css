@@ -10,9 +10,13 @@
 	float: left;
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
-	width: 40%;
 	cursor: pointer;
 }
+
+.card-img{
+	max-width: 150px;
+}
+
 /* 選択した本をハイライト */
 .highlight {
 	background-color: cyan;
