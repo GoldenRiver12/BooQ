@@ -91,6 +91,7 @@ public class MainController {
 	}
 	
 	@GetMapping("/search")
+	@ResponseBody
 	public String questionSearch(@RequestParam("book-keyword") String bookKeyword, @RequestParam("question-keyword") String questionKeyword) {
 		return null;
 	}
