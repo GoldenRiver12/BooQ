@@ -9,14 +9,14 @@ import com.example.demo.model.Question;
 
 
 public class QuestionSpecifications {
-	public Specification<Question> contentContains(String keyword){
+	public static Specification<Question> contentContains(String keyword){
 		return (root, query, builder) ->
 			keyword.isEmpty() ?
 			builder.conjunction() :
 			builder.like(root.get("content"), "%" + keyword + "%");
 	}
 	
-	public Specification<Question> isbnIn(List<String> isbnList){
+	public static Specification<Question> isbnIn(List<String> isbnList){
 		return (root, query, builder) ->
 			builder.in(root.get("isbn").in(isbnList));
 	}
