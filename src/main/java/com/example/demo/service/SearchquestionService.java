@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.model.Question;
 
 @Service
-public class searchquestionService {
+public class SearchquestionService {
 	public List<Question> findQuestionByQuestionKeyword(String questionKeyword){
 		return List.of();
 	}
