@@ -48,7 +48,7 @@
 									:class="{'highlight': (item.isbn13 == selectedBook.isbn13)}"
 									data-bs-dismiss="modal">
 									<div class="row">
-										<div class="col-md-4">
+										<div class="col-md-4 card-img-container">
 											<img class="card-img" v-bind:src="item.thumbnail">
 										</div>
 										<div class="col-md-8">{{item.title}}</div>
@@ -68,7 +68,7 @@
 			<button type="button" class="btn btn-secondary my-3"
 				data-bs-toggle="modal" data-bs-target="#booksearch-modal">書籍を選択</button>
 			<div class="row">
-				<div class="col-md-4">
+				<div class="col-md-4 card-img-container">
 					<img class="card-img" v-bind:src="selectedBook.thumbnail">
 				</div>
 				<div class="col-md-8">{{selectedBook.title}}</div>
