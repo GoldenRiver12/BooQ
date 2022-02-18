@@ -12,7 +12,7 @@
 	<div class="mx-5" id="vue_bookselection_el" v-cloak>
 		<div th:replace="myfragment :: book-search-modal"></div>
 
-		<form>
+		<form th:action="@{/searchquestion}" method="get">
 			<div class="containter">
 				<div class="row align-items-center">
 					<div class="col-3">
