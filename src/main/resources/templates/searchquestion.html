@@ -12,15 +12,19 @@
 	<div class="mx-5" id="vue_bookselection_el" v-cloak>
 		<div th:replace="myfragment :: book-search-modal"></div>
 
-		<form th:action="@{/searchquestion}" method="get">
+		<form th:action="@{/searchquestion/search}" method="get">
 			<div class="containter">
 				<div class="row align-items-center">
 					<div class="col-3">
 						<div th:replace="myfragment :: book-search-select"></div>
+						<div class="d-none">
+							<label for="isbn"> ISBN </label> <input type="text" name="isbn" id="isbn"
+								v-model="selectedBook.isbn13">
+						</div>
 					</div>
 					<div class="col-4">
 						<label class="form-label" for="questionKeyword">質問内容</label> <input
-							class="form-control" type="text">
+							class="form-control" type="text" name="questionKeyword" id="questionKeyword">
 					</div>
 					<div class="col-4">
 						<button class="btn btn-primary">検索</button>

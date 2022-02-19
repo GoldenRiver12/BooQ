@@ -86,7 +86,12 @@ public class MainController {
 	}
 	
 	@GetMapping("/searchquestion")
-	public String searchquestion() {
+	public String showSearchquestionPage() {
+		return "searchquestion";
+	}
+	
+	@GetMapping("/searchquestion/search")
+	public String searchquestion(@RequestParam("isbn") String isbn, @RequestParam("questionKeyword") String questionKeyword) {
 		return "searchquestion";
 	}
 	
