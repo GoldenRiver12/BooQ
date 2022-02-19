@@ -36,8 +36,9 @@
 		</form>
 
 		
-		<div th:each="question : ${questions}">
-			<div class="border m-2 p-2" th:text="${question.content}"></div>
+		<div class="border m-2 p-2" th:each="question : ${questions}">
+			<div th:text="${question.content}"></div>
+			<button class="btn btn-primary">回答する</button>
 		</div>
 
 
