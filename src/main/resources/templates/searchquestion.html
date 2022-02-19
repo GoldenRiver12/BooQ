@@ -35,23 +35,10 @@
 			</div>
 		</form>
 
-		<table class="table">
-			<thead>
-				<tr>
-					<th>ユーザーID</th>
-					<th>ISBN</th>
-					<th>質問内容</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="question : ${questions}">
-					<td th:text="${question.userid}"></td>
-					<td th:text="${question.isbn}"></td>
-					<td th:text="${question.content}"></td>
-				</tr>
-			</tbody>
-		</table>
-
+		
+		<div th:each="question : ${questions}">
+			<div class="border m-2 p-2" th:text="${question.content}"></div>
+		</div>
 
 
 	</div>
