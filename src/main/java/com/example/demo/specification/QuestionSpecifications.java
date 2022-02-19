@@ -18,6 +18,6 @@ public class QuestionSpecifications {
 	
 	public static Specification<Question> isbnIn(List<String> isbnList){
 		return (root, query, builder) ->
-			builder.in(root.get("isbn").in(isbnList));
+			root.get("isbn").in(isbnList);
 	}
 }
