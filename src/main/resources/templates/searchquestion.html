@@ -39,6 +39,9 @@
 		<div class="border m-2 p-2" th:each="question : ${questions}">
 			<div th:text="${question.content}"></div>
 			<button class="btn btn-primary">回答する</button>
+			<button class="btn btn-primary">自分の回答</button>
+			<button class="btn btn-primary">みんなの回答</button>
+			<button class="btn btn-primary" disabled>その他</button>
 		</div>
 
 
