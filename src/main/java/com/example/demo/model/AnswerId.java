@@ -24,7 +24,5 @@ public class AnswerId implements Serializable{
 
 	private Long answerId;
 	
-	private Long userid;
-	
 	private Long questionId;
 }

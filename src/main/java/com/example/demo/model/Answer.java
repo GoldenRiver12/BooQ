@@ -36,7 +36,6 @@ public class Answer implements Serializable {
 	/**
 	 * 回答したユーザーID
 	 */
-	@Id
 	private Long userid;
 	
 	/**
