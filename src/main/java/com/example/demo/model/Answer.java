@@ -55,4 +55,7 @@ public class Answer implements Serializable {
 	 * 回答内容
 	 */
 	private String content;
+	
+	@ManyToOne
+	private Question question;
 }

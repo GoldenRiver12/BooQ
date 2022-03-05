@@ -2,6 +2,7 @@ package com.example.demo.model;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.*;
 import org.hibernate.validator.constraints.ISBN;
@@ -54,4 +55,7 @@ public class Question implements Serializable{
 	 * 質問内容
 	 */
 	private String content;
+	
+	@OneToMany
+	private List<Answer> answers;
 }
