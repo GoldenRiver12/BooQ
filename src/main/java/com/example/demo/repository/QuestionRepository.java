@@ -9,7 +9,7 @@ import org.springframework.data.repository.query.Param;
 import com.example.demo.model.Question;
 import com.example.demo.model.QuestionId;
 
-public interface QuestionRepository extends JpaRepository<Question, QuestionId>, JpaSpecificationExecutor<Question> {
+public interface QuestionRepository extends JpaRepository<Question, Long>, JpaSpecificationExecutor<Question> {
 	
 	@Query("SELECT q from Question q WHERE isbn IN :isbnlist AND content LIKE CONCAT('%', :keyword, '%')")
 	public List<Question> findByIsbmListAndKeyword(@Param("isbnlist") List<String> isbnList, @Param("keyword") String keyword);

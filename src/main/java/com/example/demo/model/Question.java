@@ -20,7 +20,6 @@ import lombok.*;
 @AllArgsConstructor
 @EqualsAndHashCode
 @Entity
-@IdClass(QuestionId.class)
 public class Question implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -29,13 +28,11 @@ public class Question implements Serializable{
 	/**
 	 * ユーザーID
 	 */
-	@Id
 	private Long userid;
 	
 	/**
 	 * 質問対象の本のISBM
 	 */
-	@Id
 	@ISBN
 	private String isbn;
 	
