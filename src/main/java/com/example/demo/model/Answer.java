@@ -22,7 +22,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @EqualsAndHashCode
 @Entity
-@IdClass(AnswerId.class)
 public class Answer implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
@@ -39,13 +38,6 @@ public class Answer implements Serializable {
 	private Long userid;
 	
 	/**
-	 * 回答先の質問ID
-	 */
-	@Id
-	@GeneratedValue
-	private Long questionId;
-	
-	/**
 	 * 回答の投稿日時
 	 */
 	private LocalDateTime registrationTime;
@@ -56,5 +48,6 @@ public class Answer implements Serializable {
 	private String content;
 	
 	@ManyToOne
+	@JoinColumn(name = "questionId")
 	private Question question;
 }

@@ -53,6 +53,6 @@ public class Question implements Serializable{
 	 */
 	private String content;
 	
-	@OneToMany
+	@OneToMany(mappedBy = "question")
 	private List<Answer> answers;
 }
