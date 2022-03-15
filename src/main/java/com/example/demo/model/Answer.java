@@ -35,7 +35,7 @@ public class Answer implements Serializable {
 	/**
 	 * 回答したユーザーID
 	 */
-	private Long userid;
+	private Long userId;
 	
 	/**
 	 * 回答の投稿日時

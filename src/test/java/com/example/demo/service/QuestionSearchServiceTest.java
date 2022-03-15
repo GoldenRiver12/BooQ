@@ -47,7 +47,7 @@ class QuestionSearchServiceTest {
 	void 質問内容が質問検索キーワードを含み＿本が本検索キーワードを含むとき＿その質問を取得する() throws IOException {
 		
 		SiteUser user = SiteUser.builder()
-			.username("田中 太郎")
+			.userName("田中 太郎")
 			.password("password")
 			.email("tanakataro@example.com")
 			.role(Role.ROLE_USER.toString())
@@ -55,9 +55,9 @@ class QuestionSearchServiceTest {
 
 		siteUserRepository.save(user);
 
-		Long userid = siteUserRepository.findByUsername("田中 太郎")
+		Long userid = siteUserRepository.findByUserName("田中 太郎")
 			.get()
-			.getUserid();
+			.getUserId();
 
 		Book book = Book.builder()
 			.isbn13("9784492470855")
@@ -67,7 +67,7 @@ class QuestionSearchServiceTest {
 
 		Question question = Question.builder()
 			.isbn("9784492470855")
-			.userid(userid)
+			.userId(userid)
 			.registrationTime(LocalDateTime.now())
 			.content("熱力学の第一法則とは何か？")
 			.build();

@@ -34,7 +34,7 @@ class QuestionRepositoryTest {
 
 		// 質問を登録するユーザーを作成
 		SiteUser user = SiteUser.builder()
-			.username("田中 太郎")
+			.userName("田中 太郎")
 			.password("password")
 			.email("tanakataro@example.com")
 			.role(Role.ROLE_USER.toString())
@@ -42,13 +42,13 @@ class QuestionRepositoryTest {
 
 		siteUserRepository.save(user);
 
-		Long userid = siteUserRepository.findByUsername("田中 太郎")
+		Long userid = siteUserRepository.findByUserName("田中 太郎")
 			.get()
-			.getUserid();
+			.getUserId();
 
 		// 質問（キーワードを含む）
 		Question question = Question.builder()
-			.userid(userid)
+			.userId(userid)
 			.isbn("9784492470855")
 			.registrationTime(LocalDateTime.now())
 			.content("熱力学の第一法則とは何か？")
@@ -56,7 +56,7 @@ class QuestionRepositoryTest {
 
 		// 質問（キーワードを含まない）
 		Question questionDoNotContainsKeyword = Question.builder()
-			.userid(userid)
+			.userId(userid)
 			.isbn("9784492470855")
 			.registrationTime(LocalDateTime.now())
 			.content("法律とは何か？")
@@ -73,9 +73,9 @@ class QuestionRepositoryTest {
 		Question actual = searchedQuestions.get(0);
 
 		// キーワードを含んだ質問が取得できたことを確認
-		assertEquals(question.getUserid(), actual.getUserid());
+		assertEquals(question.getUserId(), actual.getUserId());
 		assertEquals(question.getIsbn(), actual.getIsbn());
-		assertEquals(question.getUserid(), actual.getUserid());
+		assertEquals(question.getUserId(), actual.getUserId());
 		assertEquals(question.getRegistrationTime(), actual.getRegistrationTime());
 		assertEquals(question.getContent(), actual.getContent());
 	}

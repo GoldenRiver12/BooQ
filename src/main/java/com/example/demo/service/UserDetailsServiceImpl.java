@@ -20,12 +20,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 	private final SiteUserRepository userRepository;
 
 	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Optional<SiteUser> user = userRepository.findByUsername(username);
+	public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
+		Optional<SiteUser> user = userRepository.findByUserName(userName);
 
 		return user
-				.map(u -> new User(u.getUsername(), u.getPassword(), AuthorityUtils.createAuthorityList(u.getRole())))
-				.orElseThrow(() -> new UsernameNotFoundException(String.format("%s not found", username)));
+				.map(u -> new User(u.getUserName(), u.getPassword(), AuthorityUtils.createAuthorityList(u.getRole())))
+				.orElseThrow(() -> new UsernameNotFoundException(String.format("%s not found", userName)));
 
 	}
 

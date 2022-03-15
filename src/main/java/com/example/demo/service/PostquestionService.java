@@ -22,7 +22,7 @@ public class PostquestionService {
 	private final BookRepository bookRepository;
 	
 	public Optional<SiteUser> findUserByUsername(String name) {
-		return siteUserRepostory.findByUsername(name);
+		return siteUserRepostory.findByUserName(name);
 	}
 	
 	public List<Book> findBookByKeyword(String keyword) throws IOException{

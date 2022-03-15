@@ -76,7 +76,7 @@ public class MainController {
 		SiteUser currentUser = postquestionService.findUserByUsername(principal.getName())
 			.orElseThrow();
 
-		question.setUserid(currentUser.getUserid());
+		question.setUserId(currentUser.getUserId());
 		question.setRegistrationTime(LocalDateTime.now());
 
 		questionRepository.save(question);

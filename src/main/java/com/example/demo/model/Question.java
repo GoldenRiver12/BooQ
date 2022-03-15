@@ -28,7 +28,7 @@ public class Question implements Serializable{
 	/**
 	 * ユーザーID
 	 */
-	private Long userid;
+	private Long userId;
 	
 	/**
 	 * 質問対象の本のISBM

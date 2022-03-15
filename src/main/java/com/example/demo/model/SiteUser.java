@@ -24,14 +24,14 @@ public class SiteUser {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userid;
+    private Long userId;
     
     /**
      * ユーザー名
      */
     @Column(unique=true)
     @UniqueUsername
-    private String username;
+    private String userName;
 	
 	/**
 	 * パスワード
