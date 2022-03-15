@@ -42,13 +42,12 @@ class QuestionRepositoryTest {
 
 		siteUserRepository.save(user);
 
-		Long userid = siteUserRepository.findByUserName("田中 太郎")
-			.get()
-			.getUserId();
+		SiteUser questioner = siteUserRepository.findByUserName("田中 太郎")
+			.get();
 
 		// 質問（キーワードを含む）
 		Question question = Question.builder()
-			.userId(userid)
+			.questioner(questioner)
 			.isbn("9784492470855")
 			.registrationTime(LocalDateTime.now())
 			.content("熱力学の第一法則とは何か？")
@@ -56,7 +55,7 @@ class QuestionRepositoryTest {
 
 		// 質問（キーワードを含まない）
 		Question questionDoNotContainsKeyword = Question.builder()
-			.userId(userid)
+			.questioner(questioner)
 			.isbn("9784492470855")
 			.registrationTime(LocalDateTime.now())
 			.content("法律とは何か？")
@@ -64,8 +63,7 @@ class QuestionRepositoryTest {
 
 		questionRepository.saveAll(List.of(question, questionDoNotContainsKeyword));
 
-		List<Question> searchedQuestions = questionRepository.findByIsbmListAndKeyword(List.of("9784492470855"),
-				"法則");
+		List<Question> searchedQuestions = questionRepository.findByIsbmListAndKeyword(List.of("9784492470855"), "法則");
 
 		// 検索結果が1件であることを確認
 		assertEquals(1, searchedQuestions.size());
@@ -73,9 +71,9 @@ class QuestionRepositoryTest {
 		Question actual = searchedQuestions.get(0);
 
 		// キーワードを含んだ質問が取得できたことを確認
-		assertEquals(question.getUserId(), actual.getUserId());
+		assertEquals(question.getQuestioner(), actual.getQuestioner());
 		assertEquals(question.getIsbn(), actual.getIsbn());
-		assertEquals(question.getUserId(), actual.getUserId());
+		assertEquals(question.getQuestioner(), actual.getQuestioner());
 		assertEquals(question.getRegistrationTime(), actual.getRegistrationTime());
 		assertEquals(question.getContent(), actual.getContent());
 	}

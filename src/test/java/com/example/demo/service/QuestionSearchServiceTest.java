@@ -55,9 +55,8 @@ class QuestionSearchServiceTest {
 
 		siteUserRepository.save(user);
 
-		Long userid = siteUserRepository.findByUserName("田中 太郎")
-			.get()
-			.getUserId();
+		SiteUser questioner = siteUserRepository.findByUserName("田中 太郎")
+			.get();
 
 		Book book = Book.builder()
 			.isbn13("9784492470855")
@@ -67,7 +66,7 @@ class QuestionSearchServiceTest {
 
 		Question question = Question.builder()
 			.isbn("9784492470855")
-			.userId(userid)
+			.questioner(questioner)
 			.registrationTime(LocalDateTime.now())
 			.content("熱力学の第一法則とは何か？")
 			.build();

@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import java.util.List;
+
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
@@ -48,4 +50,10 @@ public class SiteUser {
 	 * ロール
 	 */
 	private String role;
+	
+	@OneToMany(mappedBy = "questioner")
+	private List<Question> questions;
+	
+	@OneToMany(mappedBy = "respondent")
+	private List<Answer> answers;
 }

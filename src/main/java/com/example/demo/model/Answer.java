@@ -33,9 +33,12 @@ public class Answer implements Serializable {
 	private Long answerId;
 	
 	/**
-	 * 回答したユーザーID
+	 * 回答者
 	 */
-	private Long userId;
+	@ManyToOne
+	@JoinColumn(name = "userId")
+	private SiteUser respondent;
+
 	
 	/**
 	 * 回答の投稿日時

@@ -24,11 +24,12 @@ public class Question implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
-	
 	/**
-	 * ユーザーID
+	 * 質問者
 	 */
-	private Long userId;
+	@ManyToOne
+	@JoinColumn(name = "userId")
+	private SiteUser questioner;
 	
 	/**
 	 * 質問対象の本のISBM
@@ -52,6 +53,7 @@ public class Question implements Serializable{
 	 * 質問内容
 	 */
 	private String content;
+	
 	
 	@OneToMany(mappedBy = "question")
 	private List<Answer> answers;
