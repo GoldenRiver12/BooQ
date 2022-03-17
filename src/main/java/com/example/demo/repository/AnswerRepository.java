@@ -10,5 +10,6 @@ import com.example.demo.model.Answer;
 @Repository
 public interface AnswerRepository extends JpaRepository<Answer, Long>{
 	public List<Answer> findByQuestionQuestionId(String questionId);
+	public List<Answer> findByQuestionQuestionIdAndRespondentUserId(Long questionId, Long userId);
 	public Integer countByQuestionQuestionId(String questionId);
 }
