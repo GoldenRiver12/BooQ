@@ -41,11 +41,11 @@
 			<button class="btn btn-primary">回答する</button>
 			<button class="btn btn-primary">
 				自分の回答
-				<span class="badge bg-secondary">123</span>
+				<span class="badge bg-secondary"></span>
 			</button>
 			<button class="btn btn-primary">
 				みんなの回答
-				<span class="badge bg-secondary">456</span>
+				<span class="badge bg-secondary" th:text="${#lists.size(question.answers)}"></span>
 			</button>
 			<button class="btn btn-primary" disabled>その他</button>
 		</div>
