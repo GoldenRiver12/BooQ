@@ -36,16 +36,16 @@
 		</form>
 
 		
-		<div class="border m-2 p-2" th:each="question : ${questions}">
-			<div th:text="${question.content}"></div>
+		<div class="border m-2 p-2" th:each="sqr : ${searchQuestionResults}">
+			<div th:text="${sqr.question.content}"></div>
 			<button class="btn btn-primary">回答する</button>
 			<button class="btn btn-primary">
 				自分の回答
-				<span class="badge bg-secondary"></span>
+				<span class="badge bg-secondary" th:text="${#lists.size(sqr.yourAnswers)}"></span>
 			</button>
 			<button class="btn btn-primary">
 				みんなの回答
-				<span class="badge bg-secondary" th:text="${#lists.size(question.answers)}"></span>
+				<span class="badge bg-secondary" th:text="${#lists.size(sqr.question.answers)}"></span>
 			</button>
 			<button class="btn btn-primary" disabled>その他</button>
 		</div>

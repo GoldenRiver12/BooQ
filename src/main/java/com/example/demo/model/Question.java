@@ -41,7 +41,7 @@ public class Question implements Serializable{
 	 * 質問ID
 	 */
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long questionId;
 	
 	/**

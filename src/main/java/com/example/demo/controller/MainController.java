@@ -3,6 +3,9 @@ package com.example.demo.controller;
 import java.io.IOException;
 import java.security.Principal;
 import java.time.LocalDateTime;
+
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -98,7 +101,7 @@ public class MainController {
 	@GetMapping("/searchquestion/search")
 	public String searchquestion(Model model, @RequestParam("isbn") String isbn,
 			@RequestParam("questionKeyword") String questionKeyword) {
-		model.addAttribute("questions", searchquestionService.findQuestionUsingIsbn(isbn, questionKeyword));
+		model.addAttribute("searchQuestionResults", searchquestionService.searchQuestionsUsingIsbn(isbn, questionKeyword));
 		return "searchquestion";
 	}
 

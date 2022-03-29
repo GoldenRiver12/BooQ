@@ -30,6 +30,7 @@ public class Answer implements Serializable {
 	 * 回答ID
 	 */
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long answerId;
 	
 	/**
