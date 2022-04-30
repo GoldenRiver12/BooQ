@@ -7,18 +7,25 @@
 <title>ログイン</title>
 </head>
 <body>
-	<h1>ログイン</h1>
-	<form th:action="@{/login}" method="post">
-		<div>
-			<input type="text" name="userName" placeholder="ユーザ名">
+	<div class="m-3 w-50">
+
+		<h1>ログイン</h1>
+		<form th:action="@{/login}" method="post">
+			<div class="my-3">
+				<input class="form-control" type="text" name="userName"
+					placeholder="ユーザ名">
+			</div>
+			<div class="my-3">
+				<input class="form-control" type="password" name="password"
+					placeholder="パスワード">
+			</div>
+			<button class="my-1" type="submit">ログイン</button>
+		</form>
+		<div class="my-1">
+			<a th:href="@{/register}"> 新規登録</a>
 		</div>
-		<div>
-			<input type="password" name="password" placeholder="パスワード">
-		</div>
-		<button type="submit">ログイン</button>
-	</form>
-	<div>
-		<a th:href="@{/register}"> 新規登録</a>
+
 	</div>
+	<script src="webjars/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
