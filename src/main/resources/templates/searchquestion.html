@@ -12,7 +12,33 @@
 	<div class="mx-5" id="vue_bookselection_el" v-cloak>
 		<div th:replace="myfragment :: book-search-modal"></div>
 
-		<form class="border" th:action="@{/searchquestion/search}" method="get">
+		<div class="modal" id="postAnswerModal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title">タイトル</h5>
+						<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+					</div>
+					<div class="modal-body">
+						質問<br>
+						<p>質問内容</p>
+						回答<br>
+						<textarea rows="4" cols="50"></textarea>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-bs-dismiss="modal">閉じる</button>
+						<button type="button" class="btn btn-primary">保存する</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+			data-bs-target="#postAnswerModal">回答画面テスト</button>
+
+		<form class="border" th:action="@{/searchquestion/search}"
+			method="get">
 			<div class="containter">
 				<div class="row align-items-center">
 					<div class="col-3">
@@ -34,27 +60,34 @@
 				</div>
 			</div>
 		</form>
+	</div>
 
-		
-		<div class="border m-2 p-2" th:each="sqr : ${searchQuestionResults}">
-			<div th:text="${sqr.question.content}"></div>
-			<button class="btn btn-primary">回答する</button>
+	<div class="mx-5" id="vue_list_question_el">
+
+		<div class="border m-2 p-2" th:each="sqr : ${searchQuestionResults}"
+			v-for="(sqr, index) in searchQuestionResults">
+			<div th:text="${sqr.question.content}">{{ searchQuestionResults[index].question.content }}</div>
+			<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+				data-bs-target="#postAnswerModal">回答する</button>
 			<button class="btn btn-primary">
-				自分の回答
-				<span class="badge bg-secondary" th:text="${#lists.size(sqr.yourAnswers)}"></span>
+				自分の回答 <span class="badge bg-secondary"
+					th:text="${#lists.size(sqr.yourAnswers)}"></span>
 			</button>
 			<button class="btn btn-primary">
-				みんなの回答
-				<span class="badge bg-secondary" th:text="${#lists.size(sqr.question.answers)}"></span>
+				みんなの回答 <span class="badge bg-secondary"
+					th:text="${#lists.size(sqr.question.answers)}"></span>
 			</button>
 			<button class="btn btn-primary" disabled>その他</button>
 		</div>
-
-
 	</div>
+
+
+
+
 
 	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 	<script type="text/javascript" th:src="@{/js/bookSelection.js}"></script>
+	<script type="text/javascript" th:src="@{/js/searchquestion.js}"></script>
 </body>
 </html>
